@@ -1,0 +1,9 @@
+---
+- name: Create given list of directories
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: "{{ item.owner | default(custom_directories_default_owner) }}"
+    group: "{{ item.group | default(custom_directories_default_group) }}"
+  with_items: "{{ custom_directories_list }}"
+  become: true
