@@ -6,5 +6,4 @@
     owner: "{{ item.owner | default(custom_directories_default_owner) }}"
     group: "{{ item.group | default(custom_directories_default_group) }}"
   with_items: "{{ custom_directories_list }}"
-  when: custom_directories_list is defined
   become: true
